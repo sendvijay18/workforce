@@ -1,0 +1,27 @@
+<div class="col-md-6">
+    <h2 class="text-center">Employee Details</h2>
+    <form [formGroup]="editForm">
+        <div class="form-group">
+        <label for="id">Employee ID</label>
+        <input type="number" formControlName="id" ([ngModel])={{}} placeholder="ID" name="id" class="form-control" id="empId">
+        </div>
+
+        <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input formControlName="first_name" placeholder="firstName" name="first_name" class="form-control" id="first_name_Id">
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input formControlName="last_name" placeholder="lastName" name="last_name" class="form-control" id="last_name_Id">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input formControlName="email" placeholder="" name="email" class="form-control" id="emailId">
+        </div>
+
+        <button class="btn btn-success" (click)="editEmployeeSubmit()">Update</button> 
+        <!-- <button class="btn btn-success" (click)="deleteEmployee()">Delete</button> -->
+    </form>
+</div>

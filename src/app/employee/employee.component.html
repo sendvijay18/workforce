@@ -1,1 +1,17 @@
-<p>employee works!</p>
+<div class = "">
+    <div class="flex">
+        <div class="example-card" *ngFor="let employee of employeeList?.data">
+            <mat-card (click)="editEmployee(employee)" >
+                <img mat-card-image src="{{employee.avatar}}" alt="{{employee.email}}">
+                <mat-card-content>
+                    <p>{{employee.first_name}} {{employee.last_name}}</p>
+                </mat-card-content>
+            </mat-card> 
+        </div>
+    </div>
+    <div *ngFor="let page of pages">
+        <button (click)="getdataByPage(page)">{{page}}</button>
+    </div>
+</div>
+
+
