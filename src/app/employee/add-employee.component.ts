@@ -27,7 +27,10 @@ export class AddEmployeeComponent implements OnInit {
       .subscribe( data => {
         let val:any = Object.assign({}, data);
         console.log(val);
-        this.router.navigate(['employees']);
+        this.router.navigate(['employee']);
+      },
+      error => {
+        alert(error);
       });
   }
 

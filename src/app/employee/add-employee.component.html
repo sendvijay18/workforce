@@ -1,7 +1,7 @@
 <div class="col-md-6">
     <h2 class="text-center">Add Employee</h2>
-    <form>
-        <div class="form-group">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" hidden>
         <label for="id">Employee ID</label>
         <input type="number" formControlName="id" placeholder="ID" name="id" class="form-control" id="empId">
         </div>
@@ -23,5 +23,6 @@
 
         <!-- <button class="btn btn-success" (click)="editEmployeeSubmit()">Update</button>  -->
         <!-- <button class="btn btn-success" (click)="deleteEmployee()">Delete</button> -->
+        <button class="btn btn-success">Add</button>
     </form>
 </div>

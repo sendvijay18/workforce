@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import {Router} from "@angular/router";
-import {first} from "rxjs/operators";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Employee } from './employee.model';
 
@@ -31,16 +30,15 @@ export class EditEmployeeComponent implements OnInit {
     });
     this.employeeService.getEmployeeById(+employee)
       .subscribe( data => {
-        this.editForm.setValue(data);
+        this.editForm.setValue(data.data);
     });
   }
 
   editEmployeeSubmit() {
     this.employeeService.updateEmployee(this.editForm.value)
-      .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['employees']);
+          this.router.navigate(['employee']);
         },
         error => {
           alert(error);
@@ -48,15 +46,14 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   deleteEmployee() {
-    // this.employeeService.deleteEmployee(this.editForm.value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     data => {
-    //       this.router.navigate(['employees']);
-    //     },
-    //     error => {
-    //       alert(error);
-    //     });
+    this.employeeService.deleteEmployee(this.editForm.value.id)
+      .subscribe(
+        data => {
+          this.router.navigate(['employee']);
+        },
+        error => {
+          alert(error);
+        });
   }
 
 }
