@@ -23,13 +23,6 @@ export class EmployeeComponent implements OnInit {
     this.getdataByPage(this.page);
   }
 
-  // deleteEmployee(employee: Employee): void {
-  //   this.employeeService.deleteEmployee(employee.id)
-  //     .subscribe( data => {
-  //       this.employeeList = this.employeeList.filter(u => u !== employee);
-  //     })
-  // };
-
   editEmployee(employee: Employee): void {
     localStorage.removeItem("editEmployeeId");
     localStorage.setItem("editEmployeeId", employee.id.toString());
@@ -43,9 +36,6 @@ export class EmployeeComponent implements OnInit {
         for(let i=0;i < pageData.total_pages; i++){
           this.pages.push(i+1);
         }
-        console.log(typeof(this.pages), this.pages);
-        console.log(typeof(pageData));
-        console.log("empList type",typeof(this.employeeList));
         this.employeeList = pageData;
     });
   }
